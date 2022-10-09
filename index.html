@@ -44,37 +44,32 @@ def persentiga(sav,per):
    
     return int(sav)*per   
 
-list_money = []   
+  
 gaarid =1000000;   
 def xisaabi(*ags, **kws):
+    list_money = [] 
     seefka = document.getElementById('seefka').value;
     per =document.getElementById('persentiga').value;
     gaarid =document.getElementById('gaarid').value; 
-    result= persentiga(seefka,int(per))
-    
+    result= persentiga(seefka,int(per)) 
     start = result
     num = 1
 
-   
     while start < int(gaarid): 
         begin = start
-   
         num +=1
         start  +=  persentiga(start,int(per))-start
         if not  list_money:
-            frist_start = start/2
+            frist_start = start / ((int(per)/100)+1)
             result =f'Marka 1 aad : {round(frist_start):,} USD'.replace(',', ' ')
             list_money.append(result)
-
 
         result =f'Marka {num} aad : {round(start):,} USD'.replace(',', ' ')
         list_money.append(result)
         print(list_money)
     end_result = f'waxee kugu qaadaneesaa {num} jeer : {round(start):,} USD' .replace(',', ' ')
-
-    pyscript.write("kooban",end_result)
-    
     list_re = "\n".join(list_money)
+    pyscript.write("kooban",end_result)
     pyscript.write("faafaahin",list_re)
 
           
